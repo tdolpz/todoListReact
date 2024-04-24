@@ -1,4 +1,4 @@
-import ContainerHalloContent from "./components/ContainerHallo.jsx";
+import ContainerHalloContent from "./components/ContainerHalloContent.jsx";
 
 function App() {
   return (
@@ -6,7 +6,6 @@ function App() {
 			<header>
 				<h1>Do It Now Or Never</h1>
 			</header>
-
 			<main>
 				<div className="container-hallo">
 					<ContainerHalloContent />
