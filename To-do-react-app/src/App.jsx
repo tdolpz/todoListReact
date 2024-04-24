@@ -1,12 +1,20 @@
-// import { useState } from 'react'
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
+import ContainerHalloContent from "./components/ContainerHalloContent.jsx";
 
 function App() {
   return (
-    <>
-      <h1>Hello App!</h1>
-    </>
+		<div className="page-wrap">
+			<header>
+				<h1>Do It Now Or Never</h1>
+			</header>
+			<main>
+				<div className="container-hallo">
+					<ContainerHalloContent />
+					FORM <br />
+					FILTER
+				</div>
+				TODO LIST
+			</main>
+		</div>
   );
 }
 
