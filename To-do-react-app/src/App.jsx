@@ -1,5 +1,4 @@
-import ContainerHallo from "./components/ContainerHallo.jsx";
-import TodoList from "./components/TodoList.jsx";
+import ContainerHalloContent from "./components/ContainerHallo.jsx";
 
 function App() {
   return (
@@ -7,9 +6,14 @@ function App() {
 			<header>
 				<h1>Do It Now Or Never</h1>
 			</header>
+
 			<main>
-				<ContainerHallo />
-				<TodoList/>
+				<div className="container-hallo">
+					<ContainerHalloContent />
+					FORM <br />
+					FILTER
+				</div>
+				TODO LIST
 			</main>
 		</div>
   );

@@ -1,6 +1,6 @@
-function ContainerHallo() {
+function ContainerHalloContent() {
 	return (
-		<div className="container-hallo">
+		<>
 			<p>
 				Ahoy, <strong>Aufgaben-Artist! <svg width="32" height="32" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
 					<g fill="#945a32">
@@ -47,11 +47,8 @@ function ContainerHallo() {
 					<path d="m42.2 34.4l-15.4-8.5l.9-1.3l15.4 8.5zm-18.3-8.2l-4.5-2.6l2.6-4l4.6 2.5zm13.2 16l-15.1-9l.9-1.2L38 40.9zm-18-8.7l-4.4-2.7l2.6-4l4.5 2.6zM32 50.1l-14.8-9.5l.8-1.3l14.8 9.4zm-17.6-9.3L10 37.9l2.6-4l4.4 2.8z" fill="#b0bdc6"/>
 				</svg> bunt und streichen sie ab.
 			</p>
-
-			FORM COMPONENT ...
-
-		</div>
+		</>
 	);
 }
 
-export default ContainerHallo;
+export default ContainerHalloContent;
