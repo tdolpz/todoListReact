@@ -21,7 +21,7 @@ const FILTER_NAMES = Object.keys(FILTER_MAP);
 // Übergabe der "tasks"-Property via "props" aus der main.jsx
 function App() {
 
-	// State-Variablen "tasks" und "filter" mit initialen Werten erstellen
+	// State-Variablen "tasks" mit initialen Werten aus der localstorage erstellen
 	// Locally stored list... and initilaised tasks...
 	//
 	const [tasks, setTasks] = useState(() => {
@@ -29,34 +29,33 @@ function App() {
 		return storedTasks ? JSON.parse(storedTasks) : [];
 	});
 
-	/*
-	useEffect(() => {
-		localStorage.setItem('tasks', JSON.stringify(tasks));
-	}, [tasks]);
-  */
-
 	// State-Variable "filter" mit Initialwert erstellen
 	const [filter, setFilter] = useState("alle");
 
+	useEffect(() => {
+		localStorage.setItem('tasks', JSON.stringify(tasks));
+	}, [tasks]);
+
 	// Funktion: "Aufgabe hinzufügen"
 	// "name" ist der Taskname, der durch das Input-Formular übergeben wird
-	function addTask(name) {
+	function addTask(newTaskInput) {
+
 		// Wenn nur Leerzeichen eingegeben werden, mache nichts
 		/*
 		 * Die Verwendung von trim() für eine Zeichenfolge aus reinen Leerzeichen, führt zu einer
 		 * Zeichenlänge von 0. Mit der Eigenschaft „length“ gekoppelt, kann man sehr einfach Zeichenfolgen
 		 * erkennen, die nur aus Leerzeichen bestehen.
 		 */
-		if (name.trim().length === 0) {
+		if (newTaskInput.trim().length === 0) {
 			return;
 		}
 
 		// Ein neuen Task nur hinzufügen, wenn das Input-Feld nicht leer ist ...
-		if (name !== "") {
+		if (newTaskInput !== "") {
 			// ein neues Daten-Set für den Task erstellen
 			const newTask = {
 				id: `todo-${nanoid()}`, // -> hiermit wird eine zufällige und eindeutige ID erzeugt
-				name: name,
+				name: newTaskInput,
 				completed: false,
 			};
 
@@ -116,6 +115,7 @@ function App() {
 
 		// "editedTaskList" in JSON konvertieren und localstorage damit aktualisieren
 		localStorage.setItem("list", JSON.stringify(editedTaskList));
+		setFilter("alle");
 	}
 
 	// Funktion: "Umschalten zwischen "erledigt" und "offen"
