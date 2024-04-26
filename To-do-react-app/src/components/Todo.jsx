@@ -15,9 +15,6 @@ function Todo(props) {
 		// Ausführen der editTask-Funktion aus der App-Komponente. Damit wird der Taskname aktualisiert.
 		props.editTask(props.id, newName);
 
-		// Nach dem Hinzufügen des Tasks den State von "newName" zurücksetzen.
-		// setNewName("");
-
 		// Den State von "isEditing" auf false setzen
 		setEditing(false);
 	}
@@ -26,6 +23,14 @@ function Todo(props) {
 	// Der State des Tasknamens wird bei jeder Eingabe aktualisiert.
 	function handleChange(e) {
 		setNewName(e.target.value);
+	}
+
+	// Funktion um das Verhalten bei Klick auf den Cancel-Button zu managen.
+	// ein ggf. geänderter Task wird wieder auf den ursprünglichen Task zurückgesetzt.
+	// Der Edit-Modus wird beendet.
+	function handleCancel() {
+		setNewName(props.name);
+		setEditing(false);
 	}
 
 	// Erstellen des View-Templates. Dieses Markup soll angezeigt werden, wenn der State von "isEditing" false ist.
@@ -112,11 +117,8 @@ function Todo(props) {
 					</svg>
 				</button>
 
-				<button
-					className="cancel-btn"
-					/* Bei Klick auf den Cancel-Button den "isEditing"-State auf false setzen */
-					onClick={() => setEditing(false)}
-				>
+				{/* Bei Klick auf den Cancel-Button die Funktion handleCancel ausführen*/}
+				<button className="cancel-btn" onClick={handleCancel}>
 					<svg
 						xmlns="http://www.w3.org/2000/svg"
 						width="1em"

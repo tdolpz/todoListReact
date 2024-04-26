@@ -118,6 +118,14 @@ function App() {
 		setFilter("alle");
 	}
 
+	// Funktion: "Aufgabe abrechen"
+	function cancelTask() {
+		const editedTaskList = tasks.map((task) => {
+			return task;
+		});
+	}
+
+
 	// Funktion: "Umschalten zwischen "erledigt" und "offen"
 	// Wird ausgeführt bei beim Klick auf die jeweilige Checkbox
 	function toggleTaskCompleted(id) {
@@ -151,9 +159,7 @@ function App() {
 	 * Funktionen an die Todo-Komponente (Setter). Diese Funktionen können dann in der Todo-Komponente als
 	 * Callback-Funktionen über das Klick-Event ausgeführt werden.
 	 */
-	const taskList = tasks
-		.filter(FILTER_MAP[filter])
-		.map((task) => (
+	const taskList = tasks.filter(FILTER_MAP[filter]).map((task) => (
 			<Todo
 				id={task.id}
 				name={task.name}
@@ -162,6 +168,7 @@ function App() {
 				deleteTask={deleteTask}
 				toggleTaskCompleted={toggleTaskCompleted}
 				editTask={editTask}
+				cancelTask={cancelTask}
 			/>
 		));
 
