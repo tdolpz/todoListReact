@@ -23,17 +23,19 @@
 	--quaternary-color: #7948cb;
 
 	/* Button colors */
-	--edit-color: #010004;
-	--add-color: rgb(25, 241, 195);
+	/* '''--edit-color: #403d41;''' */
+	--edit-color: rgb(39, 39, 41);
+	--add-color: rgb(2, 139, 110);
 	--remove-color: rgb(212, 49, 125);
 	--reset-color: rgb(212, 49, 125);
 	--save-color: #7948cb;
+	--cancel-color: #999999;
 
 	/* Specials */
 	--box-shadow-black: 0 4px 5px rgba(12, 4, 11, 0.5);
 	--box-shadow-extra: 10px 12px 12px rgba(12, 4, 11, 0.5);
-	--box-shadow-button: 0 4px 5px rgba(22, 66, 175, 0.5);
-	--border-color: 1px solid #2b3272;
+	--box-shadow-button: 0 6px 5px rgba(12, 4, 11, 0.5);
+	--border-color: 1px solid #dadbe4;
 	--transparent-background: rgba(244, 255, 248, 0);
 
 	/* Hintergrundbild */
@@ -84,7 +86,7 @@ body {
 	min-height: calc(100vh - 2rem);
 	/*background-color: var(--primary-color);*/
 	padding: 0.75rem;
-	border: 1px solid var(--font-color-dark);
+	border: 1px solid var(--font-color-light);
 	border-radius: 16px;
 	box-shadow: var(--box-shadow-extra);
 	background-color: var(--primary-color-trans);
@@ -178,7 +180,7 @@ main {
 	margin-bottom: 1rem;
 }
 
-.container-new-todo {
+.container-new-todo form {
 	width: 100%;
 	max-width: 600px;
 	display: flex;
@@ -201,6 +203,12 @@ main {
 	@media screen and (min-width: 768px) {
 		margin-bottom: 1.5rem;
 	}
+}
+
+.filter-buttons {
+	display: flex;
+	gap: 0.5rem;
+	margin-top: 1rem;
 }
 
 .container-footer {
