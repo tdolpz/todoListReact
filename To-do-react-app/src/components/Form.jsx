@@ -3,7 +3,7 @@ import { useState } from "react";
 // Hauptfunktion der Form-Komponente
 function Form(props) {
 	// State-Variable für den Taskname erstellen
-	const [name, setName] = useState("");
+	const [newTaskInput, setNewTaskInput] = useState("");
 
 	// Funktion um das Absenden des Forms zu managen
 	function handleSubmit(event) {
@@ -11,15 +11,15 @@ function Form(props) {
 		event.preventDefault();
 
 		// Ausführen der addTask-Funktion aus der App-Komponente. Damit wird ein neuer Task hinzugefügt.
-		props.addTask(name);
+		props.addTask(newTaskInput);
 
 		// Nach dem Hinzufügen des Tasks den State des Tasknamens zurücksetzen und damit das Input-Feld wieder leeren.
-		setName("");
+		setNewTaskInput("");
 	}
 
 	// Funktion um die Eingabe in das Input-Feld zu managen. Der State des Tasknamens wird bei jeder Eingabe aktualisiert.
 	function handleChange(event) {
-		setName(event.target.value);
+		setNewTaskInput(event.target.value);
 	}
 
 	return (
@@ -32,7 +32,7 @@ function Form(props) {
 					id="newTaskInput"
 					placeholder="Was ist noch zu tun?"
 					autoComplete="off"
-					value={name} // Taskname als value des Input-Feldes abbilden
+					value={newTaskInput} // Taskname als value des Input-Feldes abbilden
 					onChange={handleChange} // handleChange(event) ausführen bei Change-Event
 				/>
 				<button type="submit" className="add-btn">
