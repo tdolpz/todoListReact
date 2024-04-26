@@ -19,7 +19,7 @@ const FILTER_NAMES = Object.keys(FILTER_MAP);
 
 // Hauptfunktion der App-Komponente.
 // Übergabe der "tasks"-Property via "props" aus der main.jsx
-function App(props) {
+function App() {
 
 	// State-Variablen "tasks" und "filter" mit initialen Werten erstellen
 	// Locally stored list... and initilaised tasks...
