@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { nanoid } from "nanoid";
 import ContainerHalloContent from "./components/ContainerHalloContent.jsx";
 import FilterButton from "./components/FilterButton.jsx";
@@ -20,8 +20,22 @@ const FILTER_NAMES = Object.keys(FILTER_MAP);
 // Hauptfunktion der App-Komponente.
 // Übergabe der "tasks"-Property via "props" aus der main.jsx
 function App(props) {
+
 	// State-Variablen "tasks" und "filter" mit initialen Werten erstellen
-	const [tasks, setTasks] = useState(props.tasks);
+	// Locally stored list... and initilaised tasks...
+	//
+	const [tasks, setTasks] = useState(() => {
+		const storedTasks = localStorage.getItem('tasks');
+		return storedTasks ? JSON.parse(storedTasks) : [];
+	});
+
+	/*
+	useEffect(() => {
+		localStorage.setItem('tasks', JSON.stringify(tasks));
+	}, [tasks]);
+  */
+
+	// State-Variable "filter" mit Initialwert erstellen
 	const [filter, setFilter] = useState("alle");
 
 	// Funktion: "Aufgabe hinzufügen"
