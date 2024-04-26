@@ -118,13 +118,6 @@ function App() {
 		setFilter("alle");
 	}
 
-	// Funktion: "Aufgabe abrechen"
-	function cancelTask() {
-		const editedTaskList = tasks.map((task) => {
-			return task;
-		});
-	}
-
 
 	// Funktion: "Umschalten zwischen "erledigt" und "offen"
 	// Wird ausgeführt bei beim Klick auf die jeweilige Checkbox
@@ -168,7 +161,6 @@ function App() {
 				deleteTask={deleteTask}
 				toggleTaskCompleted={toggleTaskCompleted}
 				editTask={editTask}
-				cancelTask={cancelTask}
 			/>
 		));
 
